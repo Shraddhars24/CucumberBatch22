@@ -31,7 +31,8 @@ resources - to write all non java stuff such as feature files, excel,config file
 features directory
 I need to keep all the feature files at one place so create directory features for  all the feature files under resources
 
-
+Utility package - common methods class - all the methods and webdriver to be used
+config reader class to read all the properties from config.prop file
 
 
 

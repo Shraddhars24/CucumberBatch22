@@ -7,13 +7,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.CommonMethods;
+import utils.ConfigReader;
 
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-public class LoginSteps extends BaseClass{
+public class LoginSteps extends CommonMethods {
 
 /*public WebDriver driver;*/
     @Given("user is able to access HRMS application")
@@ -29,13 +31,20 @@ public class LoginSteps extends BaseClass{
 
     @When("user enters valid username and password")
     public void user_enters_valid_username_and_password() {
-        driver.findElement(By.id("txtUsername")).sendKeys("admin");
-        driver.findElement(By.id("txtPassword")).sendKeys("Hum@nhrm123");
+        WebElement userNameField=driver.findElement(By.id("txtUsername"));
+               // userNameField.sendKeys("admin");
+        sendText(ConfigReader.read("userName"),userNameField);
+
+        WebElement passwordField=driver.findElement(By.id("txtPassword"));
+        //passwordField.sendKeys("Hum@nhrm123");
+        sendText(ConfigReader.read("password"),passwordField);
     }
 
     @When("user clicks on login button")
     public void user_clicks_on_login_button() {
-        driver.findElement(By.id("btnLogin")).click();
+       WebElement loginButton= driver.findElement(By.id("btnLogin"));
+       //loginButton.click();
+       click(loginButton);
 
     }
 
@@ -47,12 +56,14 @@ public class LoginSteps extends BaseClass{
     @When("user clicks on PIM option")
     public void user_clicks_on_pim_option() {
         WebElement pimOption= driver.findElement(By.id("menu_pim_viewPimModule"));
-        pimOption.click();
+        //pimOption.click();
+        click(pimOption);
     }
     @When("user clicks on Add employee option")
     public void user_clicks_on_add_employee_option() {
         WebElement addEmpoption =driver.findElement(By.id("menu_pim_addEmployee"));
-        addEmpoption.click();
+        //addEmpoption.click();
+        click(addEmpoption);
     }
 
 
