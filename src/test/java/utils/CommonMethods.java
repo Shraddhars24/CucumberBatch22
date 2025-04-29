@@ -49,8 +49,8 @@ public class CommonMethods extends PageInitializer{
 
         initializerPageObjects();
 
-        /*String url = ConfigReader.read(Constants.CONFIG_FILE_PATH, "url");
-        driver.get(url);*/
+        //*String url = ConfigReader.read(Constants.CONFIG_FILE_PATH, "url");
+        //driver.get(url);
     }
 
     public static void closeBrowser() {
