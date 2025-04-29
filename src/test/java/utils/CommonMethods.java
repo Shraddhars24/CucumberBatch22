@@ -16,17 +16,17 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
-public class CommonMethods {
+public class CommonMethods extends PageInitializer{
     public static WebDriver driver;
 
-    public static void openBrowserAndLaunchApplication() throws IOException {
+    public void openBrowserAndLaunchApplication() {
         //Declare the instance
        /* String browserName = ConfigReader.read("browser");*/
         switch (ConfigReader.read("browser")){
             case "Chrome":
-                ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");
-                driver=new ChromeDriver(options);
+                /*ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");*/
+                driver=new ChromeDriver();//(options);
                 break;
             case "FireFox":
                 driver = new FirefoxDriver();
@@ -46,6 +46,8 @@ public class CommonMethods {
         //take me to the url
 
         driver.get(ConfigReader.read("url"));
+
+        initializerPageObjects();
 
         /*String url = ConfigReader.read(Constants.CONFIG_FILE_PATH, "url");
         driver.get(url);*/

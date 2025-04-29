@@ -3,7 +3,7 @@ Feature: Login related scenarios
   Background:
   #Given user is able to access HRMS application
 
-  @sprint1 @smoke @regression @sohel
+  @sprint1 @smoke @regression @sohel @Login123
   Scenario: Valid admin login
 
     When user enters valid username and password

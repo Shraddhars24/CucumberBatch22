@@ -34,6 +34,9 @@ I need to keep all the feature files at one place so create directory features f
 Utility package - common methods class - all the methods and webdriver to be used
 config reader class to read all the properties from config.prop file
 
+Page Object Model Design pattern
+ We create page classes in this as per the screens in the application
+
 
 
 

@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         //also, it provides missing step definition
         //to start the execution, set the value of dry run to false
         dryRun =false,
-        tags = "@sohel",
+        tags = "@Login123",
         plugin = {"pretty"}
 
 

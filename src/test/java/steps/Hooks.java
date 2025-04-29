@@ -10,8 +10,8 @@ import java.time.Duration;
 
 public class Hooks extends CommonMethods {
     @Before
-    public void start() throws IOException {
-        openBrowserAndLaunchApplication();
+    public void start()  {
+       openBrowserAndLaunchApplication();
         //OR
         /*driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
