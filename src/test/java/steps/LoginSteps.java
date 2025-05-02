@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.LoginPage;
 import utils.CommonMethods;
 import utils.ConfigReader;
+import utils.PageInitializer;
 
 import java.io.IOException;
 import java.time.Duration;

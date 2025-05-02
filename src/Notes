@@ -37,6 +37,14 @@ config reader class to read all the properties from config.prop file
 Page Object Model Design pattern
  We create page classes in this as per the screens in the application
 
+ Maven surefire plugin
+ it makes our project into single build
+
+Scenario class in cucumber
+it hold the complete information about which test class is passed/failed
+
+
+
 
 
 

@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         //to start the execution, set the value of dry run to false
         dryRun =false,
         tags = "@Login123",
-        plugin = {"pretty"}
+        plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json"}
 
 
         // All three will be executed

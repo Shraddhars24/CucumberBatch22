@@ -8,14 +8,14 @@ Feature: Add employee
     When user clicks on PIM option
     And user clicks on Add employee option
 
-  @sprint1 @melissa
+  @sprint1 @sami
   Scenario: Adding the employee by firstname and lastname
 
     And user enters firstname and lastname
     And user clicks on save button
     Then employee added successfully
 
-    @sprint2 @smoke @regression @melissa
+    @sprint2 @smoke @regression @sami
   Scenario: Adding the employee by firstname middlename and lastname
 
     And user enters firstname and middlename and lastname
