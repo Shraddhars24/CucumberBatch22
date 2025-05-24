@@ -122,7 +122,7 @@ public class AddEmployeeSteps extends CommonMethods {
             //WebElement middleNameLocator=driver.findElement(By.id("middleName"));
             //WebElement lastNameLocator=driver.findElement(By.id("lastName"));
 
-            sendText(employee.get("firstname"), addEmployeePage.firstNameLocator);
+            sendText(employee.get("firstName"), addEmployeePage.firstNameLocator);
             sendText(employee.get("middleName"), addEmployeePage.middleNameLocator);
             sendText(employee.get("lastName"), addEmployeePage.lastNameLocator);
 

@@ -17,6 +17,7 @@ public class ExcelReader {
         List<Map<String, String>> excelData = new ArrayList<>();
 
         try (FileInputStream fileInputStream = new FileInputStream(path);
+             //.xlsx - XSSF , .xls - HSSF we need these extensions for Excel files
              XSSFWorkbook excelFile = new XSSFWorkbook(fileInputStream)) {
 
             Sheet sheet1 = excelFile.getSheet(sheetName);
