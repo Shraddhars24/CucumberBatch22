@@ -24,9 +24,9 @@ public class CommonMethods extends PageInitializer{
        /* String browserName = ConfigReader.read("browser");*/
         switch (ConfigReader.read("browser")){
             case "Chrome":
-                /*ChromeOptions options = new ChromeOptions();
-                options.addArguments("--headless");*/
-                driver=new ChromeDriver();//(options);
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                driver=new ChromeDriver(options);
                 break;
             case "FireFox":
                 driver = new FirefoxDriver();

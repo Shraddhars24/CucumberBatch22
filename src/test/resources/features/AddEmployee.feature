@@ -22,7 +22,7 @@ Feature: Add employee
     And user clicks on save button
     Then employee added successfully
 
-      @params
+      @params @dbTesting
       Scenario: Adding the employee using parameters
         And user enters "Mark" and "Anthony" and "Jacob" in the application
         And user clicks on save button

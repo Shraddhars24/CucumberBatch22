@@ -2,10 +2,12 @@ package steps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.AddEmployeePage;
 import utils.CommonMethods;
+import utils.DbUtils;
 import utils.ExcelReader;
 
 import java.io.IOException;
@@ -14,7 +16,11 @@ import java.util.Map;
 
 public class AddEmployeeSteps extends CommonMethods {
 
-    AddEmployeePage addEmployeePage=new AddEmployeePage();
+    //AddEmployeePage addEmployeePage=new AddEmployeePage();
+    String employeeId;
+    String expectedFN;
+    String expectedMN;
+    String expectedLN;
 
     @When("user enters firstname and lastname")
     public void user_enters_firstname_and_lastname() {
@@ -32,7 +38,15 @@ public class AddEmployeeSteps extends CommonMethods {
     }
     @Then("employee added successfully")
     public void employee_added_successfully() {
-        System.out.println("Employee added successfully");
+        String query = "select emp_firstname, emp_middle_name, emp_lastname from hs_hr_employees where employee_id ="+employeeId;
+        List<Map<String, String>> employeeData = DbUtils.fetchData(query);
+        String actualFN = employeeData.get(0).get("emp_firstname");
+        String actualMN = employeeData.get(0).get("emp_middle_name");
+        String actualLN = employeeData.get(0).get("emp_lastname");
+        Assert.assertEquals(expectedFN, actualFN);
+        Assert.assertEquals(expectedMN, actualMN);
+        Assert.assertEquals(expectedLN, actualLN);
+        /*System.out.println("Employee added successfully");*/
     }
 
     @When("user enters firstname and middlename and lastname")
@@ -40,6 +54,7 @@ public class AddEmployeeSteps extends CommonMethods {
         //WebElement firstNameLocator=driver.findElement(By.id("firstName"));
         //firstNameLocator.sendKeys("Mark");
         sendText("Mark",addEmployeePage.firstNameLocator);
+
         //WebElement middleNameLocator=driver.findElement(By.id("middleName"));
         //middleNameLocator.sendKeys("Anthony");
         sendText("Anthony",addEmployeePage.middleNameLocator);
@@ -64,6 +79,11 @@ public class AddEmployeeSteps extends CommonMethods {
         sendText(firstName, addEmployeePage.firstNameLocator);
         sendText(middleName, addEmployeePage.middleNameLocator);
         sendText(lastName, addEmployeePage.lastNameLocator);
+        expectedFN=firstName;
+        expectedMN=middleName;
+        expectedLN=lastName;
+        //get the id of the employee from add employee page
+        employeeId = addEmployeePage.employeeIdField.getAttribute("value");
     }
 
     @When("user add {string},{string} and {string}")
